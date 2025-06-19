@@ -6,9 +6,32 @@ using UnityEngine;
 public class test : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        Debug.Log(-100)
+        Debug.Log(-10 % 7);
+        RandByXorshift randByXorshift = new RandByXorshift();
+        randByXorshift.setSeed(1000,1000);
+        for (int i = 0; i < 10; i++)
+        {
+            Debug.Log("seed : 1000,1000    " + randByXorshift.Rand());
+        }
+        randByXorshift.setSeed(500, 700);
+        for (int i = 0; i < 10; i++)
+        {
+            Debug.Log("seed : 500,700    " + randByXorshift.Rand());
+        }
+        randByXorshift.setSeed(1000, 1000);
+        for (int i = 0; i < 10; i++)
+        {
+            Debug.Log("seed : 1000,1000    " + randByXorshift.Rand());
+        }
+        randByXorshift.setSeed(500, 700);
+        for (int i = 0; i < 10; i++)
+        {
+            Debug.Log("seed : 500,700    " + randByXorshift.Rand());
+        }
+        /*
+        Debug.Log(-100);
         //Test();
         System.Diagnostics.Stopwatch sw = System.Diagnostics.Stopwatch.StartNew();
         sw.Start();
@@ -18,7 +41,8 @@ public class test : MonoBehaviour
         }
         sw.Stop();
         //Debug.Log(sw.ElapsedMilliseconds);
-        TestRandom2(1000);
+        //TestRandom2(1000);
+        */
     }
 
     public void Test()
